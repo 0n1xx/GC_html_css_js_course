@@ -101,6 +101,16 @@ header > nav > menu li a {
     gap: 6px;
 }
 
+#submit{
+    display: flex;
+    justify-content: center;
+}
+#submit > input{
+    padding: 15px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
 /* Setting the footer as a flex container where we align elements inside of to the bottom of the vertical line */
 footer{
     margin-top: 50px;
@@ -109,4 +119,3 @@ footer{
     align-items: flex-end;
     background-color: #ffa260;
 }
-
