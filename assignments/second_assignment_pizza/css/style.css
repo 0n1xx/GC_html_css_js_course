@@ -105,6 +105,7 @@ header > nav > menu li a {
     display: flex;
     justify-content: center;
 }
+/* add some style to the input */
 #submit > input{
     padding: 15px;
     font-weight: 600;
