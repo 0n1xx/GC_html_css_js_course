@@ -1,6 +1,5 @@
 /* Setting general parameters to all pages */
-
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
@@ -12,15 +11,10 @@ p, blockquote {
     font-size: 15px;
 }
 
-/* Designing the header */
+/* Designing the header for all pages */
 
-.header {
-    display: flex;
-    align-items: center;
-    height: 250px;
-    background-color: transparent;
-}
-
+/* Adding the part for all devices */
+/* Just adding some style customization for our elements on websites */
 .header > nav a {
     padding: 10px;
     color: #0e0e0e;
@@ -28,15 +22,23 @@ p, blockquote {
     text-decoration-color: black;
 }
 
-.header > a, header > a > img{
-    height: 100%;
+.header > a, header > a > img {
+        height: 100%;
 }
 
+/* No matter the size, I want my header be a flex container */
+.header {
+    display: flex;
+    align-items: center;
+}
+
+/* Writing the nav element takes the rest of the space */
 .header > nav {
     display: flex;
     flex: 1;
 }
 
+/* Generally setting the the menu elements should have even space */
 .header > nav > menu {
     display: flex;
     justify-content: space-evenly;
@@ -48,86 +50,286 @@ p, blockquote {
     height: 100%;
 }
 
+/* Setting the heigh for my header for laptops, computers */
+@media (min-width: 1025px) {
+    .header {
+        height: 250px;
+        width: auto;
+    }
+    /* Hiding a nav for small devices */
+    .phones_size_li{
+        display: none;
+    }
+}
+
+/* Setting the heigh for my tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .header {
+        height: 100px;
+        width: auto;
+    }
+    /* Hiding a nav for small devices */
+    .phones_size_li{
+        display: none;
+    }
+}
+
+/* Customizing for phones */
+@media (max-width: 600px) {
+    .header {
+        height: 75px;
+        width: auto;
+    }
+    /* Hiding the elements designed for big screens */
+    .big_screens_li{
+        display: none;
+    }
+}
+
+
+/* Starting working with the main element */
+/* Setting the div as a flex centre container for both axis */
 .main_header > div {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
 }
 
-/* Setting css for the home page */
-
-/* Designing the main section  */
-
-#home_page_first_intro, #home_page_second_intro, #walkman_creator_words, #about_page_main_content {
-    width: auto;
-    height: 550px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 15px;
+/* Increasing the margin bottom for laptops, computers */
+@media (min-width: 1025px){
+    .main_header > div {
+        margin-bottom: 40px;
+    }
 }
 
-#home_page_first_intro > div, img,
-#home_page_second_intro div, img,
-#walkman_creator_words  > div, img{
-    height: 100%;
-    width: 100%;
+/* Customizing different elements for tablets */
+@media  (min-width: 601px) and (max-width: 1024px){
+    .main_header > div {
+        margin-bottom: 15px;
+    }
+    /* Deleting the margin of the h1 element for tablets */
+    .main_header > div h1{
+        margin-bottom: 0;
+    }
+    /* Changing the size of h1 to h3, so it will look better on tablets*/
+    h1 {
+        font-size: 19px;
+    }
 }
 
+/* Customizing different elements for phones */
+@media (max-width: 600px){
+    .main_header > div {
+        margin-bottom: 5px;
+    }
+    /* Deleting the margin of the h1 element for phones */
+    .main_header > div h1{
+        margin-bottom: 0;
+    }
+    /* Changing the size of h1 to h3, so it will look better on tablets*/
+    h1 {
+        font-size: 18px; /* approximate size of h5 */
+    }
+}
+
+
+/* Working with the main body of this page */
+/* Creating a media query for laptops */
+@media (min-width: 1025px) {
+    #home_page_first_intro, #home_page_second_intro, #walkman_creator_words{
+        width: auto;
+        height: 550px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 15px;
+    }
+    /* Adding a left margin for laptops */
+    #home_page_first_intro p {
+        margin-left: 10px;
+    }
+
+    /* Hiding the image designed only for phones */
+    #home_page_first_intro .phone-only-image {
+        display: none;
+    }
+
+    /* All images take 100% of the width and the height of their parents */
+    #home_page_first_intro > div, img,
+    #home_page_second_intro > div, img,
+    #walkman_creator_words  > div, img{
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/* Creating a media query for laptops */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #home_page_first_intro, #home_page_second_intro, #walkman_creator_words{
+        display: flex;
+        flex-direction: column;
+    }
+    /* Deletes margin top from all p elements from three main divs on this page */
+    #home_page_first_intro p,
+    #home_page_second_intro p,
+    #walkman_creator_words p {
+        margin-top: 0;
+        margin-left: 5px;
+    }
+
+    /* Changes the order of div containers for tablets */
+    #home_page_second_intro > div:first-child {
+        order: 2;
+    }
+    #home_page_second_intro > div:last-child {
+        order: 1;
+    }
+
+    #home_page_second_intro > div:last-child > p {
+        margin-top: 0;
+    }
+
+    /* Hiding an extra image of tablets */
+    #walkman_creator_words img {
+        display: none;
+    }
+
+    /* Hiding the image designed only for phones */
+    #home_page_first_intro .phone-only-image {
+        display: none;
+    }
+
+    /* Customizing margins for h3 and blockquote elements */
+    #walkman_creator_words h3, blockquote{
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    /* Customizing the margin-buttom for p elements */
+    #walkman_creator_words p{
+        margin-bottom: 0;
+    }
+
+    #home_page_first_intro > div, img,
+    #home_page_second_intro > div, img,
+    #walkman_creator_words  > div, img{
+        max-height: 500px;
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+/* Customizing elements for phone devices */
+@media (max-width: 600px){
+    #home_page_first_intro{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Setting the size of an image for a phone */
+    .phone-only-image img {
+        width: 100%;
+        max-width: 350px;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Deletes margin top from all p elements from three main divs on this page */
+    #home_page_first_intro p {
+        margin-top: 0;
+        margin-left: 5px;
+    }
+
+    /* Hiding an extra image of tablets */
+    #home_page_second_intro, #walkman_creator_words, .big_screen_photo{
+        display: none;
+    }
+}
+
+/* No matter the size, setting that elements inside work as flex containers */
 #home_page_first_intro > div:first-child,
-#walkman_creator_words > div:first-child{
+#walkman_creator_words > div:first-child,
+#home_page_second_intro > div:last-child {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#home_page_first_intro p {
-    margin-left: 10px;
-}
-
-#home_page_second_intro > div:last-child{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
+/* Contact page */
 /* Setting CSS for the contact page */
-
-.main_header > #main_form {
-    width: auto;
-    height: 500px;
-    background-color: #dcd7bf;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, 250px);
-    grid-template-areas:
-    'contact_info urgent_question'
-    'contact_info rate_our_service';
+/* Setting the general parameters for all sizes  */
+#welcome_contact_page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#contact_info {
-    width: auto;
-    height: 100%;
-    grid-area: contact_info;
+#urgent_question  a {
+    color: #1a73e8;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+#urgent_question span {
+    color: #1a73e8;
+    padding: 2px 4px;
+    border-radius: 4px;
 }
 
 #contact_info > h3 {
     margin-bottom: 5px;
 }
 
+.main_header > #main_form{
+    background-color: #dcd7bf;
+}
+
+/* Setting how elements inside of contact info form are aligned */
 #contact_info_form{
     display: flex;
-    flex-direction: column; /* Stack vertically */
-    align-items: flex-start; /* Align to the left */
+    flex-direction: column;
+    align-items: flex-start;
     margin-left: 5px;
 }
 
+#contact_page_text{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 2px;
+    margin-bottom: 0;
+}
+
+/* Assigning each element to a specific grid part */
+#contact_info {
+    grid-area: contact_info;
+    width: auto;
+    height: 100%;
+}
+
+#urgent_question {
+    grid-area: urgent_question;
+    width: auto;
+    height: 100%;
+}
+
+#rate_our_service {
+    grid-area: rate_our_service;
+    width: auto;
+    height: 100%;
+}
+
+/* Setting styling customization for the forms */
 #contact_info_form input,
 #contact_info_form select,
 #rate_our_service select,
+#contact_page_text p,
 #contact_info_form textarea {
     width: 70%;
     padding: 5px 7px;
@@ -139,11 +341,19 @@ p, blockquote {
     box-sizing: border-box;
 }
 
-#contact_info_form button {
+/* Setting margins for the needed elements */
+#rate_our_service,
+#contact_info,
+#urgent_question {
+    margin-left: 2px;
+}
+
+/* Styling the button */
+#main_form button {
     background-color: #8b735b;
     color: #ffffff;
     font-size: 20px;
-    padding: 10px 30px;
+    margin-left: 2px;
     border: none;
     border-radius: 6px;
     font-weight: 500;
@@ -151,32 +361,73 @@ p, blockquote {
     transition: background-color 0.3s ease;
 }
 
-.main_header > #urgent_question{
-    grid-area: urgent_question;
-    width: auto;
-    height: 100%;
+/* Setting the size and grid for laptops, computers */
+@media (min-width: 1025px){
+    #main_form {
+        width: auto;
+        height: 500px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 250px);
+        grid-template-areas:
+    'contact_info urgent_question'
+    'contact_info rate_our_service';
+    }
+
+    /* Hiding the button for small screens */
+    .tablets_phones_button{
+        display: none;
+    }
+
+    /* Customizing button size */
+    #main_form button{
+        padding: 10px 30px;
+    }
 }
 
-#urgent_question  a {
-     color: #1a73e8;
-     text-decoration: underline;
-     transition: color 0.3s ease;
- }
+/* Creating a media query for laptops */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #main_form {
+        display: grid;
+        height: 850px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 400px 300px 250px;
+        grid-template-areas:
+      "contact_info"
+      "urgent_question"
+      "rate_our_service"
+    }
 
-#urgent_question span {
-    color: #1a73e8; /* Google-style blue */
-    padding: 2px 4px;
-    border-radius: 4px;
+    /* Hiding the place of the button for big screens */
+    .big_screen_button{
+        display: none;
+    }
+
+    /* Customizing button size */
+    #main_form button{
+        padding: 5px 15px;
+    }
 }
 
-.main_header > #rate_our_service{
-    grid-area: rate_our_service;
-    width: auto;
-    height: 100%;
+/* customizing a table for mobile devices */
+@media (max-width: 600px){
+    #main_form {
+        display: grid;
+        height: 900px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 450px 300px 250px;
+        grid-template-areas:
+      "contact_info"
+      "urgent_question"
+      "rate_our_service"
+    }
+    .big_screen_button{
+        display: none;
+    }
 }
+
 
 /* Setting CSS for the about page */
-
 #about_page_main_content {
     width: auto;
     height: 1200px;
@@ -213,21 +464,6 @@ p, blockquote {
     margin-top: 16px;
     font-size: 13px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.06);
-}
-
-/* Designing the footer */
-
-.footer{
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-end;
-}
-
-.footer p,
-.footer a {
-    text-decoration: none;
-    color: #0e0e0e;
 }
 
 /* Setting the design of shop page */
@@ -321,3 +557,60 @@ p, blockquote {
     transition: background-color 0.3s ease;
 }
 
+/* Designing the footer */
+/* No matter what is the size setting the following parameters */
+/* Setting some styling for the footer */
+.footer p,
+.footer a {
+    text-decoration: none;
+    color: #0e0e0e;
+}
+
+/* Setting my footer as a flex container */
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+/* Based on the window size, setting the margin top */
+@media (min-width: 1025px) {
+    .footer {
+        margin-top: 30px;
+    }
+    .phone_contact_info{
+        display: none;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .footer {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .phone_contact_info{
+        display: none;
+    }
+    .footer p{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
+    }
+    .big_screens_info{
+        display: none;
+    }
+    .footer p{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

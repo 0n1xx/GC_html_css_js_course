@@ -19,16 +19,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <a href="homepage.html"> <img src="photos/home_page/logo_hd.png" alt="header logo"></a>
-        <nav>
-            <menu>
-                <li> <a href="homepage.html">Home</a></li>
-                <li> <a href="shop_page.html">Shop</a></li>
-                <li> <a href="about_page.html">About the company</a></li>
-            </menu>
-        </nav>
-    </header>
+<header class="header">
+    <a href="homepage.html"> <img src="photos/home_page/logo_hd.png" alt="header logo"></a>
+    <nav>
+        <menu>
+            <li class="big_screens_li"> <a href="shop_page.html">Shop</a></li>
+            <li class="big_screens_li"> <a href="contact_page.html">Contact page</a></li>
+            <li class="big_screens_li"> <a href="about_page.html">About the company</a></li>
+            <li class="phones_size_li"> <a href="shop_page.html">Shop</a></li>
+            <li class="phones_size_li"> <a href="contact_page.html">Contact</a></li>
+            <li class="phones_size_li"> <a href="about_page.html">About</a></li>
+        </menu>
+    </nav>
+</header>
     <main class="main_header">
         <div id="welcome_contact_page">
             <h1>How would you like to contact Sony Walkman Shop</h1>
@@ -37,6 +40,7 @@
             <div id="contact_info">
                 <h3>Contact information:</h3>
                     <div id="contact_info_form">
+                        <!-- Creating a form if a client wants to reach out my shop -->
                         <form action="somefile.php" method="post" enctype="multipart/form-data">
                         <div>
                             <label for="first_name">First name: </label>
@@ -47,7 +51,7 @@
                             <input type="text" placeholder="username" id="last_name" name="last_name" required>
                         </div>
                         <div>
-                            <label for="province_territory">Province_territory: </label>
+                            <label for="province_territory">Province_territory: </label> <!-- Allowing to choose a province or a territory -->
                             <select name="province_territory" id="province_territory" required>
                                 <option value="" disabled selected>Choose your Province or Territory</option>
                                 <option value="alberta"> Alberta</option>
@@ -79,14 +83,18 @@
                         </div>
                         <div>
                             <label for="writing_problem">Write your problem:</label><br>
-                            <textarea id="writing_problem" name="writing_problem" rows="5" cols="40" placeholder="Write your problem here..." required></textarea><br><br>
+                            <textarea id="writing_problem" name="writing_problem" rows="5" cols="40" placeholder="Write your problem here..." required></textarea>
+                        </div>
+                        <div class="big_screen_button">
                             <button type="submit">Submit</button>
                         </div>
                         </form>
                     </div>
             </div>
+            <!-- Creating a portion of website with a contact information
+            such as a phone number and links to social networks -->
             <div id="urgent_question">
-                <h2>Have any urgent issues with your order ?</h2>
+                <h3>Have any urgent issues with your order ?</h3>
                 <p>Give us a call: <span>+1 (705) 123-4567 </span></p>
                 <p>Or text us in our official social networks:</p>
                 <ul class="social-links">
@@ -95,9 +103,13 @@
                     <li><a href="https://twitter.com/yourhandle" target="_blank">Twitter</a></li>
                     <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
                 </ul>
+                <div class="tablets_phones_button">
+                    <button type="submit">Submit</button>
+                </div>
             </div>
+            <!-- Creating a small form of how clients find the usage of this website -->
             <div id="rate_our_service">
-                <h2>Do you like our service ?</h2>
+                <h3>Do you like our service ?</h3>
                 <p>Please rate our service</p>
                 <form action="somefile.php" method="post" enctype="multipart/form-data">
                     <label for="rating">Rating:</label>
@@ -112,9 +124,30 @@
                 </form>
             </div>
         </section>
+        <div id="contact_page_text">
+            <div>
+                <p>
+                    It’s the sound of freedom, individuality, and innovation that changed how the world listens.
+                </p>
+                <p>
+                    Whether you grew up with a Walkman clipped to your belt or discovered its charm through retro revival,
+                    you’re part of a global story that spans generations.
+                </p>
+            </div>
+            <div>
+                <p>
+                    We’re honored to carry that legacy forward — and we’d love to hear from you.
+                </p>
+                <p>
+                    Have a question, a memory to share, or feedback for our team? Reach out below.
+                    Your voice has always been part of the soundtrack.
+                </p>
+            </div>
+        </div>
     </main>
     <footer class="footer">
-        <p>Contact us: <a href="sony_walkman_shop@gmail.com">sony_walkman_shop@gmail.com</a> | +1 (705) 123-4567</p>
+        <p class="big_screens_info">Contact us: <a href="sony_walkman_shop@gmail.com">sony_walkman_shop@gmail.com</a> | +1 (705) 123-4567</p>
+        <p class="phone_contact_info">+1 (705) 123-4567 </p>
         <p>123 Anne St, Barrie, Canada</p>
         <p class="footer-copy">© 2025 Sony Walkman Shop. All rights reserved.</p>
     </footer>
