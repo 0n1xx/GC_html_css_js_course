@@ -1,15 +1,38 @@
-@media (min-width: 1025px) {
-    #home_page_first_intro > div:first-child,
-    #walkman_creator_words > div:first-child{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+/* Setting the grid for this size */
+#shop_page {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
 
-    #home_page_second_intro > div:last-child{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }}
+#shop_page > div a {
+    width: 50%;
+    display: block;
+}
+
+#shop_page > div img {
+    width: 100%;
+    height: auto;
+}
+
+#sony_walkman_wm_2011{
+    grid-row: 1;
+}
+
+#sony_walkman_wm_a12{
+    grid-row: 2;
+}
+
+#sony_walkman_wm_f2015{
+    grid-row: 3;
+}
+
+/* Setting each product section as a flex container */
+#sony_walkman_wm_2011,
+#sony_walkman_wm_a12,
+#sony_walkman_wm_f2015{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

@@ -111,10 +111,6 @@ p, blockquote {
     .main_header > div h1{
         margin-bottom: 0;
     }
-    /* Changing the size of h1 to h3, so it will look better on tablets*/
-    h1 {
-        font-size: 19px;
-    }
 }
 
 /* Customizing different elements for phones */
@@ -126,12 +122,7 @@ p, blockquote {
     .main_header > div h1{
         margin-bottom: 0;
     }
-    /* Changing the size of h1 to h3, so it will look better on tablets*/
-    h1 {
-        font-size: 18px; /* approximate size of h5 */
-    }
 }
-
 
 /* Working with the main body of this page */
 /* Creating a media query for laptops */
@@ -385,7 +376,7 @@ p, blockquote {
     }
 }
 
-/* Creating a media query for laptops */
+/* Creating a media query for tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
     #main_form {
         display: grid;
@@ -428,21 +419,8 @@ p, blockquote {
 
 
 /* Setting CSS for the about page */
-#about_page_main_content {
-    width: auto;
-    height: 1200px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 15px;
-}
-
-#about_page_main_content > div,
-#about_page_main_content img {
-    height: 100%;
-    width: 100%;
-}
-
+/* Setting some general parameters */
+/* Setting the first div container as a flex container and changing the direction of it */
 #about_page_main_content > div:first-child {
     display: flex;
     flex-direction: column;
@@ -450,15 +428,10 @@ p, blockquote {
     justify-content: center;
 }
 
-#about_page_main_content p,
-#about_page_main_content h3,
-#about_page_main_content h4{
-    margin-left: 10px;
-}
-
+/* Setting common styling customization */
 .timeline_block h4 {
-    color: #b7410e; /* burnt orange */
-    background-color: #fdf0d5; /* warm beige */
+    color: #b7410e;
+    background-color: #fdf0d5;
     padding: 6px 12px;
     border-left: 6px solid #b7410e;
     margin-top: 16px;
@@ -466,62 +439,105 @@ p, blockquote {
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.06);
 }
 
+/* Working with laptops, computers size viewports */
+@media (min-width: 1025px) {
+    #about_page_main_content {
+        width: auto;
+        height: 1200px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 15px;
+    }
+
+    #about_page_main_content > div,
+    #about_page_main_content img {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* Setting the margin for elements */
+    #about_page_main_content p,
+    #about_page_main_content h3,
+    #about_page_main_content h4{
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px){
+    /* Hiding a big image */
+    #about_page_main_content img{
+        display: none;
+    }
+    /* Setting margin for elements */
+    #about_page_main_content p,
+    #about_page_main_content h3,
+    #about_page_main_content h4{
+        margin-left: 5px;
+    }
+
+    #about_page_main_content h1,
+    #about_page_main_content h3{
+        margin-bottom: 4px;
+        margin-top: 4px;
+    }
+    #about_page_main_content p,
+    #about_page_main_content h4{
+        margin-top: 4px;
+    }
+}
+
+@media (max-width: 600px) {
+    #about_page_main_content img{
+        display: none;
+    }
+    /* Setting margin for elements */
+    #about_page_main_content p,
+    #about_page_main_content h3,
+    #about_page_main_content h4{
+        margin-left: 3px;
+    }
+
+    #about_page_main_content h1,
+    #about_page_main_content h3{
+        margin-bottom: 2px;
+        margin-top: 2px;
+    }
+
+    #about_page_main_content p,
+    #about_page_main_content h4{
+        margin-top: 2px;
+    }
+}
+
 /* Setting the design of shop page */
-#shop_page {
-    width: 100%;
-    height: auto;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-#shop_page img {
-    width: 100%;
-    height: auto;
-}
-
+/* Setting common parameters for all window sizes */
 #shop_page h3 {
     text-align: center;
     margin-bottom: 10px
 }
 
-#sony_walkman_wm_2011{
-    grid-column: 1;
-}
-
-#sony_walkman_wm_a12{
-    grid-column: 2;
-}
-
-#sony_walkman_wm_f2015{
-    grid-column: 3;
-}
-
-#shop_page p {
+/* Setting common styling parameters */
+#shop_page p{
     font-weight: 400;
-    font-size: 1rem;
     line-height: 1.5;
     color: #444444;
-    margin-top: 8px;
-    margin-bottom: 20px;
     text-align: center;
 }
 
+/* Setting a common property for the class product-buttons*/
 .product-buttons {
     margin-top: 10px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-
+/* Setting common visual styling properties */
 .product-buttons button,
 .product-buttons .read-more-btn {
     background-color: #b98e68;
-    padding: 10px 25px;
     font-weight: 600;
-    font-size: 1rem;
     border: none;
-    border-radius: 6px;
     color: black;
     text-decoration: none;
     display: inline-block;
@@ -529,17 +545,181 @@ p, blockquote {
     transition: background-color 0.3s ease;
 }
 
-/* Designing product section */
-#product_section{
-    width: 100%;
-    height: auto;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
+/* Setting the grid for laptops, computers */
+@media (min-width: 1025px) {
+
+    #shop_page {
+        width: 100%;
+        height: auto;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #shop_page img {
+        width: 100%;
+        height: auto;
+    }
+
+    #sony_walkman_wm_2011{
+        grid-column: 1;
+    }
+
+    #sony_walkman_wm_a12{
+        grid-column: 2;
+    }
+
+    #sony_walkman_wm_f2015{
+        grid-column: 3;
+    }
+
+    /* Setting styling customisations */
+    #shop_page p {
+        font-weight: 400;
+        font-size: 1rem;
+        margin-top: 8px;
+        margin-bottom: 20px;
+    }
+
+    /* Setting a margin top for a class*/
+    .product-buttons {
+        margin-top: 10px;
+    }
+    /* Setting some customization specifically for this view port */
+    .product-buttons button,
+    .product-buttons .read-more-btn{
+        padding: 10px 25px;
+        font-size: 1rem;
+        border-radius: 6px;
+    }
 }
 
+/* Designing the style for tablets */
+@media (min-width: 601px) and (max-width: 1024px){
+
+    /* Setting a grid for tablets */
+    #shop_page {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    #shop_page > div a {
+        width: 100%;
+        display: block;
+    }
+
+    #shop_page > div img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Setting elements of each product section as a flex container */
+    #shop_page > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Setting styling customization for this view port size */
+    #shop_page p {
+        font-size: 0.8rem;
+        margin-top: 4px;
+        margin-bottom: 10px;
+    }
+
+    /* Setting a margin top for a class*/
+    .product-buttons {
+        margin-top: 5px;
+    }
+    /* Setting some customization specifically for this view port */
+    .product-buttons button,
+    .product-buttons .read-more-btn{
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+    /* Customizing button and button elements */
+    .product-buttons button{
+        padding: 7px 12px;
+        border-radius: 3px;
+    }
+    .product-buttons .read-more-btn{
+        padding: 5px 12px;
+        border-radius: 2px;
+    }
+}
+
+/* Setting design for mobile phones */
+@media (max-width: 600px){
+    /* Setting a grid for phones */
+    #shop_page {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    #shop_page > div a:first-child {
+        width: 100%;
+        display: block;
+    }
+
+    #shop_page > div img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Setting some styling customization */
+    #shop_page h3{
+        margin-top: 0;
+    }
+
+    #shop_page p {
+        font-size: 0.8rem;
+        margin-top: 2px;
+        margin-bottom: 7px;
+    }
+
+    .product-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Setting a margin top for a class*/
+    .product-buttons {
+        margin-top: 3px;
+    }
+    /* Setting some customization specifically for this view port */
+    .product-buttons button,
+    .product-buttons .read-more-btn{
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+    /* Customizing button and button elements */
+    .product-buttons button{
+        padding: 7px 12px;
+        border-radius: 3px;
+    }
+    .product-buttons .read-more-btn{
+        padding: 5px 5px;
+        border-radius: 2px;
+    }
+}
+
+/* Designing product sections */
+/* Setting some general parameters */
 #product_text p {
-    position: relative;
     background-color: #f0ede3;
     border-left: 4px solid #b98e68;
     padding: 6px 8px;
@@ -550,11 +730,54 @@ p, blockquote {
     background-color: #b98e68;
     padding: 10px 25px;
     font-weight: 600;
-    font-size: 1rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+/* Setting the grid for laptops and computers */
+@media (min-width: 1025px){
+    #product_section{
+        width: 100%;
+        height: auto;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #product_section button {
+        font-size: 1rem;
+    }
+}
+
+/* Setting the grid for tablets and phones */
+@media (max-width: 1024px){
+    #product_section {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        gap: 20px;
+        width: 100%;
+    }
+
+    #product_image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain; /* or 'cover' depending on your desired effect */
+    }
+
+    #product_text {
+        grid-row: 2;
+    }
+    /* Styling customization */
+    #product_section button {
+        font-size: 0.8rem;
+    }
+    #product_text p,
+    #product_text button,
+    #product_text h4{
+        margin-left: 3px;
+    }
 }
 
 /* Designing the footer */
