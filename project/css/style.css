@@ -15,31 +15,37 @@ p, blockquote {
 
 /* Adding the part for all devices */
 /* Just adding some style customization for our elements on websites */
-.header > nav a {
+#header > nav a {
     padding: 10px;
     color: #0e0e0e;
     text-decoration: underline;
     text-decoration-color: black;
 }
 
-.header > a, header > a > img {
+#header > a, #header > a > img {
         height: 100%;
 }
 
 /* No matter the size, I want my header be a flex container */
-.header {
+/* making the header fixed */
+#header {
     display: flex;
     align-items: center;
+    background-color: #f2efde;
+    position: fixed;
+    z-index: 9999;
+    width: 100%; /* Ensure full width */
 }
 
 /* Writing the nav element takes the rest of the space */
-.header > nav {
+#header > nav {
     display: flex;
     flex: 1;
+    width: 100%; /* Ensure nav takes full width */
 }
 
 /* Generally setting the the menu elements should have even space */
-.header > nav > menu {
+#header > nav > menu {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -47,14 +53,14 @@ p, blockquote {
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: 100%
 }
 
 /* Setting the heigh for my header for laptops, computers */
 @media (min-width: 1025px) {
-    .header {
-        height: 250px;
-        width: auto;
+    #header {
+        height: 150px;
+        width: 100%;
     }
     /* Hiding a nav for small devices */
     .phones_size_li{
@@ -64,9 +70,9 @@ p, blockquote {
 
 /* Setting the heigh for my tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
-    .header {
+    #header {
         height: 100px;
-        width: auto;
+        width: 100%;
     }
     /* Hiding a nav for small devices */
     .phones_size_li{
@@ -76,9 +82,9 @@ p, blockquote {
 
 /* Customizing for phones */
 @media (max-width: 600px) {
-    .header {
+    #header {
         height: 75px;
-        width: auto;
+        width: 100%;
     }
     /* Hiding the elements designed for big screens */
     .big_screens_li{
@@ -86,40 +92,57 @@ p, blockquote {
     }
 }
 
-
 /* Starting working with the main element */
 /* Setting the div as a flex centre container for both axis */
-.main_header > div {
+main > div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+main > div h1 {
+    margin-top: 5px;
+}
 /* Increasing the margin bottom for laptops, computers */
 @media (min-width: 1025px){
-    .main_header > div {
+    /* Setting the padding size exactly the same as the header */
+    main{
+        padding-top: 150px;
+    }
+
+    main > div {
         margin-bottom: 40px;
     }
 }
 
 /* Customizing different elements for tablets */
 @media  (min-width: 601px) and (max-width: 1024px){
-    .main_header > div {
+    /* Setting the padding size exactly the same as the header */
+    main{
+        padding-top: 100px;
+    }
+
+    main > div {
         margin-bottom: 15px;
     }
     /* Deleting the margin of the h1 element for tablets */
-    .main_header > div h1{
+    main > div h1{
         margin-bottom: 0;
     }
 }
 
 /* Customizing different elements for phones */
 @media (max-width: 600px){
-    .main_header > div {
+    /* Setting the padding size exactly the same as the header */
+    main{
+        padding-top: 75px;
+    }
+
+    main > div {
         margin-bottom: 5px;
     }
     /* Deleting the margin of the h1 element for phones */
-    .main_header > div h1{
+    main > div h1{
         margin-bottom: 0;
     }
 }
@@ -564,6 +587,35 @@ p, blockquote {
     transition: background-color 0.3s ease;
 }
 
+/* Customizing a section with a table */
+#form_section {
+    margin-top: 10px;
+}
+
+/* Customizing a search bar */
+#myInput {
+    max-width: 600px;
+    background-color: #f5f0eb;
+    border: 2px solid #b98e68;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Customizing a table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, tr{
+    border: solid 2px grey;
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: #dddddd;
+}
+
 /* Setting the grid for laptops, computers */
 @media (min-width: 1025px) {
 
@@ -616,6 +668,15 @@ p, blockquote {
         padding: 10px 25px;
         font-size: 1rem;
         border-radius: 6px;
+    }
+
+    #myInput{
+        padding: 10px;
+    }
+
+    td, tr{
+        padding: 8px;
+        font-size: 14px;
     }
 }
 
@@ -686,6 +747,20 @@ p, blockquote {
         padding: 5px 12px;
         border-radius: 2px;
     }
+
+    /* Customizing a table */
+    table{
+        margin-bottom: 10px;
+    }
+
+    #myInput{
+        padding: 5px;
+    }
+
+    td, tr{
+        padding: 6px;
+        font-size: 12px;
+    }
 }
 
 /* Setting design for mobile phones */
@@ -751,6 +826,20 @@ p, blockquote {
     .product-buttons .read-more-btn{
         padding: 5px 5px;
         border-radius: 2px;
+    }
+
+    /* Customizing a table */
+    table{
+        margin-bottom: 10px;
+    }
+
+    #myInput{
+        padding: 5px;
+    }
+
+    td, tr{
+        padding: 6px;
+        font-size: 10px;
     }
 }
 
@@ -835,22 +924,23 @@ p, blockquote {
 /* Designing the footer */
 /* No matter what is the size setting the following parameters */
 /* Setting some styling for the footer */
-.footer p,
-.footer a {
+#footer p,
+#footer a {
     text-decoration: none;
     color: #0e0e0e;
 }
 
 /* Setting my footer as a flex container */
-.footer {
+#footer {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
+    background-color: #f2efde;
 }
 
 /* Based on the window size, setting the margin top */
 @media (min-width: 1025px) {
-    .footer {
+    #footer {
         margin-top: 30px;
     }
     .phone_contact_info{
@@ -859,7 +949,7 @@ p, blockquote {
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
-    .footer {
+    #footer {
         margin-top: 10px;
         display: flex;
         flex-direction: column;
@@ -868,14 +958,14 @@ p, blockquote {
     .phone_contact_info{
         display: none;
     }
-    .footer p{
+    #footer p{
         margin-top: 0;
         margin-bottom: 0;
     }
 }
 
 @media (max-width: 600px) {
-    .footer {
+    #footer {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -884,7 +974,7 @@ p, blockquote {
     .big_screens_info{
         display: none;
     }
-    .footer p{
+    #footer p{
         margin-top: 0;
         margin-bottom: 0;
     }
