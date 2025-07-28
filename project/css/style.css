@@ -290,11 +290,25 @@ p, blockquote {
     margin-left: 5px;
 }
 
-#contact_page_text{
+.submit_button{
+    margin-top: 10px;
+}
+
+/* Setting the title for the center to the page and deleting a margin */
+#client_rates{
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Setting all elements inside of divs to the center of each cell */
+#contact_page_text div{
     display: flex;
-    justify-content: space-evenly;
-    margin-left: 2px;
-    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact_page_text div p{
+    margin-top: 0;
 }
 
 /* Assigning each element to a specific grid part */
@@ -356,23 +370,22 @@ p, blockquote {
 @media (min-width: 1025px){
     #main_form {
         width: auto;
-        height: 500px;
+        height: 530px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(2, 250px);
+        grid-template-rows: 330px 200px;
         grid-template-areas:
     'contact_info urgent_question'
-    'contact_info rate_our_service';
+    'rate_our_service urgent_question';
     }
 
-    /* Hiding the button for small screens */
-    .tablets_phones_button{
-        display: none;
-    }
-
-    /* Customizing button size */
-    #main_form button{
-        padding: 10px 30px;
+    /* Setting a grid for a comment part */
+    #contact_page_text{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(2, 1fr);
+        margin-left: 2px;
+        margin-bottom: 0;
     }
 }
 
@@ -380,23 +393,21 @@ p, blockquote {
 @media (min-width: 601px) and (max-width: 1024px) {
     #main_form {
         display: grid;
-        height: 850px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 400px 300px 250px;
+        height: 550px;
+        grid-template-rows: 350px 200px;
+        grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
-      "contact_info"
-      "urgent_question"
-      "rate_our_service"
+      "contact_info urgent_question"
+      "rate_our_service urgent_question"
     }
 
-    /* Hiding the place of the button for big screens */
-    .big_screen_button{
-        display: none;
-    }
-
-    /* Customizing button size */
-    #main_form button{
-        padding: 5px 15px;
+    /* Setting a grid for a comment part */
+    #contact_page_text{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(2, 1fr);
+        margin-left: 2px;
+        margin-bottom: 0;
     }
 }
 
@@ -404,16 +415,23 @@ p, blockquote {
 @media (max-width: 600px){
     #main_form {
         display: grid;
-        height: 900px;
+        height: 800px;
         grid-template-columns: 1fr;
-        grid-template-rows: 450px 300px 250px;
+        grid-template-rows: 270px 350px 150px;
         grid-template-areas:
-      "contact_info"
       "urgent_question"
+      "contact_info"
       "rate_our_service"
     }
-    .big_screen_button{
-        display: none;
+    /* Setting a different grid for a comment part for phones */
+    #contact_page_text{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(4, 1fr);
+        margin-left: 2px;
+        margin-bottom: 0;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -443,7 +461,7 @@ p, blockquote {
 @media (min-width: 1025px) {
     #about_page_main_content {
         width: auto;
-        height: 1200px;
+        height: 1800px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
@@ -519,10 +537,11 @@ p, blockquote {
 
 /* Setting common styling parameters */
 #shop_page p{
-    font-weight: 400;
-    line-height: 1.5;
-    color: #444444;
     text-align: center;
+}
+
+#shop_page p.product-price {
+    font-weight: 600;
 }
 
 /* Setting a common property for the class product-buttons*/
@@ -581,6 +600,12 @@ p, blockquote {
         margin-bottom: 20px;
     }
 
+    #shop_page p.product-price {
+        font-size: 24px;
+        margin: 8px 0 12px 0;
+        text-align: center;
+    }
+
     /* Setting a margin top for a class*/
     .product-buttons {
         margin-top: 10px;
@@ -636,6 +661,12 @@ p, blockquote {
         margin-bottom: 10px;
     }
 
+    #shop_page p.product-price {
+        font-size: 16px;
+        margin: 8px 0 12px 0;
+        text-align: center;
+    }
+
     /* Setting a margin top for a class*/
     .product-buttons {
         margin-top: 5px;
@@ -689,6 +720,12 @@ p, blockquote {
         margin-bottom: 7px;
     }
 
+    #shop_page p.product-price {
+        font-size: 16px;
+        margin: 8px 0 12px 0;
+        text-align: center;
+    }
+
     .product-buttons {
         display: flex;
         justify-content: space-evenly;
@@ -726,6 +763,14 @@ p, blockquote {
     border-radius: 6px;
 }
 
+/* Setting a different styling for the paragraph with the price */
+#product_section p.product-price {
+    margin: 8px 0 12px 0;
+    font-weight: 600;      /* Optional: make it bold */
+    background-color: transparent;
+    border-left: 4px;
+}
+
 #product_section button {
     background-color: #b98e68;
     padding: 10px 25px;
@@ -746,6 +791,9 @@ p, blockquote {
     }
     #product_section button {
         font-size: 1rem;
+    }
+    #product_section p.product-price{
+        font-size: 24px;
     }
 }
 
@@ -777,6 +825,10 @@ p, blockquote {
     #product_text button,
     #product_text h4{
         margin-left: 3px;
+    }
+
+    #product_section p.product-price{
+        font-size: 20px;
     }
 }
 
