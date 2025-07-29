@@ -376,6 +376,11 @@ main > div h1 {
     margin-left: 2px;
 }
 
+/* Working with margin with the character counter */
+#contact_info_form div:last-child p{
+    margin-top: 3px;
+}
+
 /* Styling the button */
 #main_form button {
     background-color: #8b735b;
@@ -393,10 +398,10 @@ main > div h1 {
 @media (min-width: 1025px){
     #main_form {
         width: auto;
-        height: 530px;
+        height: 550px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 330px 200px;
+        grid-template-rows: 350px 200px;
         grid-template-areas:
     'contact_info urgent_question'
     'rate_our_service urgent_question';
@@ -416,8 +421,8 @@ main > div h1 {
 @media (min-width: 601px) and (max-width: 1024px) {
     #main_form {
         display: grid;
-        height: 550px;
-        grid-template-rows: 350px 200px;
+        height: 580px;
+        grid-template-rows: 380px 200px;
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
       "contact_info urgent_question"
@@ -438,9 +443,9 @@ main > div h1 {
 @media (max-width: 600px){
     #main_form {
         display: grid;
-        height: 800px;
+        height: 830px;
         grid-template-columns: 1fr;
-        grid-template-rows: 270px 350px 150px;
+        grid-template-rows: 270px 380px 150px;
         grid-template-areas:
       "urgent_question"
       "contact_info"
@@ -869,6 +874,22 @@ tr:nth-child(even){
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+/* Setting a paragraph like that until the user presses a button */
+.hidden {
+    display: none;
+}
+
+/* Setting a message style when the message is seen */
+#product_text p.success-message {
+    font-weight: 400;
+    background-color: transparent;
+    border-left: 0 solid #f5f5dc;
+    margin-top: 10px;
+    margin-left: 0;
+    padding-left: 5px;
+}
+
 /* Setting the grid for laptops and computers */
 @media (min-width: 1025px){
     #product_section{

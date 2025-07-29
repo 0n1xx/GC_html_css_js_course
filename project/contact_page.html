@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!--  link js files  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./js/custom-js.js"></script>
+    <script src="./js/custom-js.js" defer></script>
 </head>
 <body>
     <!-- Creating a global header -->
@@ -53,6 +53,9 @@
                         <div>
                             <label for="writing_problem">Write your problem:</label><br>
                             <textarea id="writing_problem" name="writing_problem" rows="5" cols="40" placeholder="Write your problem here..." required></textarea>
+                        </div>
+                        <div>
+                            <p id="charCount">Characters: 0</p>
                         </div>
                         </form>
                     </div>
