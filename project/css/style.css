@@ -22,8 +22,22 @@ p, blockquote {
     text-decoration-color: black;
 }
 
-#header > a, #header > a > img {
-        height: 100%;
+#header_logo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#header_logo > a {
+    display: flex;
+    height: 100%;
+}
+
+#header_logo > a > img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 /* No matter the size, I want my header be a flex container */
@@ -59,7 +73,7 @@ p, blockquote {
 /* Setting the heigh for my header for laptops, computers */
 @media (min-width: 1025px) {
     #header {
-        height: 150px;
+        height: 200px;
         width: 100%;
     }
     /* Hiding a nav for small devices */
@@ -71,24 +85,34 @@ p, blockquote {
 /* Setting the heigh for my tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
     #header {
-        height: 100px;
+        height: 200px;
         width: 100%;
     }
     /* Hiding a nav for small devices */
     .phones_size_li{
         display: none;
     }
+
+    #header_logo > a > img {
+        width: 75%;
+        height: auto;
+    }
 }
 
 /* Customizing for phones */
 @media (max-width: 600px) {
     #header {
-        height: 75px;
+        height: 150px;
         width: 100%;
     }
     /* Hiding the elements designed for big screens */
     .big_screens_li{
         display: none;
+    }
+
+    #header_logo > a > img {
+        width: 75%;
+        height: auto;
     }
 }
 
@@ -107,7 +131,7 @@ main > div h1 {
 @media (min-width: 1025px){
     /* Setting the padding size exactly the same as the header */
     main{
-        padding-top: 150px;
+        padding-top: 200px;
     }
 
     main > div {
@@ -119,7 +143,7 @@ main > div h1 {
 @media  (min-width: 601px) and (max-width: 1024px){
     /* Setting the padding size exactly the same as the header */
     main{
-        padding-top: 100px;
+        padding-top: 200px;
     }
 
     main > div {
@@ -135,7 +159,7 @@ main > div h1 {
 @media (max-width: 600px){
     /* Setting the padding size exactly the same as the header */
     main{
-        padding-top: 75px;
+        padding-top: 150px;
     }
 
     main > div {
@@ -414,6 +438,12 @@ main > div h1 {
         grid-template-rows: repeat(2, 1fr);
         margin-left: 2px;
         margin-bottom: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #item-5, #item-6, #item-7, #item-8{
+        display: none;
     }
 }
 
@@ -432,34 +462,44 @@ main > div h1 {
     /* Setting a grid for a comment part */
     #contact_page_text{
         display: grid;
-        grid-template-columns: repeat(4,1fr);
-        grid-template-rows: repeat(2, 1fr);
-        margin-left: 2px;
-        margin-bottom: 0;
-    }
-}
-
-/* customizing a table for mobile devices */
-@media (max-width: 600px){
-    #main_form {
-        display: grid;
-        height: 830px;
-        grid-template-columns: 1fr;
-        grid-template-rows: 270px 380px 150px;
-        grid-template-areas:
-      "urgent_question"
-      "contact_info"
-      "rate_our_service"
-    }
-    /* Setting a different grid for a comment part for phones */
-    #contact_page_text{
-        display: grid;
         grid-template-columns: repeat(2,1fr);
         grid-template-rows: repeat(4, 1fr);
         margin-left: 2px;
         margin-bottom: 0;
         justify-content: center;
         align-items: center;
+    }
+}
+
+/* customizing a table for mobile devices */
+@media (max-width: 600px) {
+    #main_form {
+        display: grid;
+        height: 830px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 270px 380px 150px;
+        grid-template-areas:
+        "urgent_question"
+        "contact_info"
+        "rate_our_service";
+    }
+
+    #contact_page_text {
+        display: grid;
+        margin-left: 2px;
+        margin-bottom: 0;
+        grid-template-areas:
+        'item-1'
+        'item-2'
+        'item-3'
+        'item-4';
+    }
+
+    #contact_page_text #item-5,
+    #contact_page_text #item-6,
+    #contact_page_text #item-7,
+    #contact_page_text #item-8 {
+        display: none;
     }
 }
 
@@ -568,7 +608,9 @@ main > div h1 {
     text-align: center;
 }
 
-#shop_page p.product-price {
+#shop_page p.product-price_wm_2011,
+#shop_page p.product-price_wm_a12,
+#shop_page p.product-price_wm_f2015 {
     font-weight: 600;
 }
 
@@ -657,7 +699,9 @@ tr:nth-child(even){
         margin-bottom: 20px;
     }
 
-    #shop_page p.product-price {
+    #shop_page p.product-price_wm_2011,
+    #shop_page p.product-price_wm_a12,
+    #shop_page p.product-price_wm_f2015{
         font-size: 24px;
         margin: 8px 0 12px 0;
         text-align: center;
@@ -727,7 +771,9 @@ tr:nth-child(even){
         margin-bottom: 10px;
     }
 
-    #shop_page p.product-price {
+    #shop_page p.product-price_wm_2011,
+    #shop_page p.product-price_wm_a12,
+    #shop_page p.product-price_wm_f2015 {
         font-size: 16px;
         margin: 8px 0 12px 0;
         text-align: center;
@@ -800,7 +846,9 @@ tr:nth-child(even){
         margin-bottom: 7px;
     }
 
-    #shop_page p.product-price {
+    #shop_page p.product-price_wm_2011,
+    #shop_page p.product-price_wm_a12,
+    #shop_page p.product-price_wm_f2015 {
         font-size: 16px;
         margin: 8px 0 12px 0;
         text-align: center;
@@ -858,7 +906,9 @@ tr:nth-child(even){
 }
 
 /* Setting a different styling for the paragraph with the price */
-#product_section p.product-price {
+#product_section p.product-price_wm_2011,
+#product_section p.product-price_wm_a12,
+#product_section p.product-price_wm_f2015 {
     margin: 8px 0 12px 0;
     font-weight: 600;      /* Optional: make it bold */
     background-color: transparent;
@@ -878,6 +928,12 @@ tr:nth-child(even){
 /* Setting a paragraph like that until the user presses a button */
 .hidden {
     display: none;
+}
+
+/* Designing the input of the quantity field */
+.product-quantity {
+    border: 2px solid #b98e68;
+    border-radius: 6px;
 }
 
 /* Setting a message style when the message is seen */
@@ -902,8 +958,16 @@ tr:nth-child(even){
     #product_section button {
         font-size: 1rem;
     }
-    #product_section p.product-price{
+    #product_section p.product-price_wm_2011,
+    #product_section p.product-price_wm_a12,
+    #product_section p.product-price_wm_f2015 {
         font-size: 24px;
+    }
+
+    .product-quantity {
+        width: 80px;
+        padding: 6px 10px;
+        font-size: 16px;
     }
 }
 
@@ -937,8 +1001,16 @@ tr:nth-child(even){
         margin-left: 3px;
     }
 
-    #product_section p.product-price{
+    #product_section p.product-price_wm_2011,
+    #product_section p.product-price_wm_a12,
+    #product_section p.product-price_wm_f2015{
         font-size: 20px;
+    }
+
+    .product-quantity {
+        width: 60px;
+        padding: 6px 10px;
+        font-size: 16px;
     }
 }
 
@@ -951,30 +1023,93 @@ tr:nth-child(even){
     color: #0e0e0e;
 }
 
-/* Setting my footer as a flex container */
+/* Setting a footer as a flex container */
 #footer {
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
     background-color: #f2efde;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+/* Setting an image to the size of the footer */
+#footer_image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#footer_image a {
+    height: 100%;
+    display: flex;
+}
+
+#footer_image img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+#footer_nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Designing a nav menu and styling elements */
+#footer_nav nav menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    text-decoration: underline;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+/* Setting contact div as a flex conatiner */
+#footer_contact_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Setting settings for logo images */
+#footer_contact_info > div:first-child img {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
 }
 
 /* Based on the window size, setting the margin top */
 @media (min-width: 1025px) {
     #footer {
-        margin-top: 30px;
+        height: 200px;
     }
     .phone_contact_info{
         display: none;
     }
+    #footer_contact_info p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    /* Setting a specific height for the logo images */
+    #footer_contact_info > div:first-child img {
+        height: 36px;
+    }
 }
 
+/* Setting settings for tablets */
 @media (min-width: 601px) and (max-width: 1024px) {
     #footer {
+        height: 200px;
         margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
     .phone_contact_info{
         display: none;
@@ -982,21 +1117,46 @@ tr:nth-child(even){
     #footer p{
         margin-top: 0;
         margin-bottom: 0;
+    }
+    #footer_image > a > img{
+        width: 75%;
+    }
+    /* Hiding navigation bar for tablets */
+    #footer_nav{
+        display: none;
+    }
+
+    /* Setting a specific height for the logo images */
+    #footer_contact_info > div:first-child img {
+        height: 30px;
     }
 }
 
 @media (max-width: 600px) {
     #footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        height: 150px;
         margin-top: 0;
     }
-    .big_screens_info{
+
+    .big_screens_info {
         display: none;
     }
-    #footer p{
+
+    #footer p {
         margin-top: 0;
         margin-bottom: 0;
+    }
+
+    #footer_image > a > img {
+        width: 75%;
+    }
+    /* Hiding navigation bar for phones */
+    #footer_nav{
+        display: none;
+    }
+
+    /* Setting a specific height for the logo images */
+    #footer_contact_info > div:first-child img {
+        height: 24px;
     }
 }
